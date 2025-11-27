@@ -1,3 +1,56 @@
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Quan trọng để chỉ hiển thị slide hiện tại */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide {
+    display: flex;
+    /* Dùng transform để chuyển slide, tối ưu hơn dùng left/margin */
+    transform: translateX(0); 
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển động */
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    /* Flex-shrink: 0 đảm bảo ảnh không bị co lại, mỗi ảnh chiếm đúng 100% chiều rộng của container */
+    flex-shrink: 0; 
+    height: auto;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+}
+
+#prevBtn {
+    left: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+#nextBtn {
+    right: 10px;
+    border-radius: 0 5px 5px 0;
+}
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -26,3 +79,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
